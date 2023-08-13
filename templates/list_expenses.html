@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h6>Begin date: {{bd}}</h6>
+    <h6>End date: {{ed}}</h6>
+    <h6 style='color:green;'>Total: ${{ tot[0] }}</h6>
+
+{% if exps %}
+
+    <table class="table table-sm">
+	<thead>
+	   <tr>	
+		<th scope="col">Date</th>
+		<th scope="col">Category
+		<th scope="col">Amount</th>
+		<th scope="col">Description</th>
+		<th scope="col">Vendor</th>
+		<th scope="col">ID</th>
+           </tr>
+	</thead>
+	<tbody>
+		{% for e in exps  %}
+		<tr>
+			<td>{{ e[0] }}</td>
+			<td>{{ e[4] }}</td>
+			<td>{{ e[1] }}</td>
+			<td>{{ e[2] }}</td>
+			<td>{{ e[3] }}</td>
+			<td>{{ e[5] }}</td>
+		</tr>
+		{% endfor %}
+	</tr>
+	</tbody>
+    </table>
+    {% endif %}
+
+    {% if cats%}
+    <table class="table table-sm">
+	<thead>
+	   <tr>	
+		<th scope="col">Category
+		<th scope="col">Total</th>
+			<th>
+				<img src = "{{ url_for('static', filename='spacer.svg')}}", width=250) "> 
+			</th> 
+		<th scope="col">&nbsp;</th>
+		<th scope="col">&nbsp;</th>
+		<th scope="col">&nbsp;</th>
+           </tr>
+	</thead>
+	<tbody>
+		{% for ct in cats  %}
+		<tr>
+			<td>{{ ct[1] }}</td>
+			<td style='text-align:right'>{{ ct[0] }}</td>
+			<td><img src = "{{ url_for('static', filename='spacer.svg')}}", width=50 height=10) "> </td> 
+	                <td>&nbsp;</td> 
+	                <td>&nbsp;</td> 
+	                <td>&nbsp;</td> 
+		</tr>
+		{% endfor %}
+	</tr>
+	</tbody>
+    </table>
+
+{% endif %}
+{% endblock %}
+

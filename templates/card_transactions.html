@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Card transactions</h2>
+
+{% if ct %}
+<table class="table table-sm">
+
+	<tr>
+		<th>Date</th><th>Amount</th><th>Vendor</th>
+		{% for c in ct  %}
+		<tr>
+		   <td>{{ c[0] }}</td>
+		   <td>{{ c[1] }}</td>
+		   <td>{{ c[2] }}</td>
+		   <td>{{ c[3] }}</td>
+		</tr>
+		{% endfor %}
+	</tr>
+</table>
+
+
+
+<!------------------------------------------------- -->                           
+
+<form action="" method="POST">
+
+   <table class="table table-sm">
+   <tbody>
+      <tr>
+              <td>Mark as reconciled:</td>
+              <td>  <input type="text" name="reconciled" >   </td>
+     </tr>
+    <tr>
+    <tr>
+            <td>  <button class="btn btn-primary" type="submit" value="Submit">Submit </></td>
+    </tr>
+
+    <tr>
+
+    </tr>
+
+   </tbody>
+   </table>
+</form>
+
+
+<!-- --------------------------------------------- -->
+
+
+
+
+
+
+
+
+{% endif %}
+
+{% endblock %}

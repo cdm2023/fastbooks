@@ -1,0 +1,5 @@
+mysql_host: 'localhost'
+mysql_user: 'maxx'
+mysql_password: 'Xnynzn#987'
+mysql_db: 'fastbooks'
+debug: 'True'

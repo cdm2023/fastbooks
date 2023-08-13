@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <img src="{{ url_for('static', filename='spacer.svg')}}" height="15" width="450" alt="spacer">
+<h3>Categories</h3>
+<hr>
+{% if cats %}
+<table class="table table-sm">
+
+	<tr>
+		<th>ID</th><th>Category</th>
+		{% for c in cats  %}
+		<tr>
+		   <td>{{ c[0] }}</td><td>{{ c[1] }}</td>
+		</tr>
+		{% endfor %}
+	</tr>
+</table>
+
+{% endif %}
+
+{% endblock %}
