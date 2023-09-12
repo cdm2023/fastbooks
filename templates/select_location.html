@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h5>select_location.html</h5>   
+        <div class="container">
+            <div class="row">
+
+<div class="col-md-2">
+
+<form action="" method="POST">
+
+   <table class="table table-sm">	
+   <tbody>
+    <tr>
+         <td>Location</td>  
+	 <td><select name="loc_id" class="form-select form-select-sm" aria-label=".form-select-sm example">
+               {% for loc in locations_list %}
+                   <option value="{{loc[0]}}">{{ loc[1] }}</option>
+              {% endfor %}
+             </select>
+	 </td>   
+    </tr>
+   </tbody>
+   </table>
+   
+  
+	     <button class="btn btn-primary" type="submit" value="Submit">View location</>
+</form>
+            </div>
+        </div>
+</div>
+                {% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<h5>list_cells.html</h5>   
+<div class="container">
+	<h3>Cells in {{ session['location'] }}:</h3>
+<div class="row">
+<div class="col-md-3">
+<form action="show_cell" method="POST">
+   <table class="table table-sm">	
+   <tbody>
+      <tr>
+	 <td><select name="cell_id" class="form-select form-select-sm" aria-label=".form-select-sm example">
+               {% for c in cell_list %}
+                   <option value="{{ c[0] }}">{{ c[1] }}</option>
+              {% endfor %}
+             </select>
+	 </td>   
+      </tr>
+      <tr>
+	 <td>
+	     <button class="btn btn-primary" type="submit" value="Submit"> Select cell</>
+</form>
+	 </td>	
+      </tr>
+
+   </tbody>
+   </table>
+</form>
+</div>
+</div>
+</div>
+                {% endblock %}

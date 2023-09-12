@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}
+Item detail
+{% endblock%}
+{% block content %}
+<h6>show_item.html</h6>
+<div class="row">
+    <div class="col-md-6">
+        {% if error %}
+        <div class="error text-danger">{{ error }}</div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+
+	<table class="table table-sm">
+	<tbody>
+		<tr><th>Item</th><th>Serial no.</th>  <th>Product No.</th>   </tr>	
+            <tr>
+	        <td>{{ item[2] }}</td>
+		<td>{{ item[3] }}</td>
+		<td>{{ item[4] }}</td>
+            </tr>		           
+	</tbody>
+	</table>
+
+	{% if transfers  %}
+         <ul>
+	 
+            {% for t in transfers %}
+             <li>{{ t }} </li>
+	    {% endfor  %}
+	 </ul>	 
+	{% endif %}
+                     
+	<form action="transfer_item" method="POST">
+		<input type="hidden" name="item_id" value="{{ item[0]}}">
+		<input type="hidden" name="from_cell_id" value="{{ item[1]}}">
+		
+
+
+         <h3>Move {{ item[2]  }} to:</h3>
+	 <table class="table table-sm">
+	   <tbody>
+	      <tr>
+		 <td><select name="target_cell_id" class="form-select form-select-sm" aria-label=".form-select-sm example">
+		       {% for c in cells_list %}
+			   <option value="{{ c[0] }}">{{ c[1] }}</option>
+		      {% endfor %}
+		     </select>
+		 </td>
+	      </tr>
+      <tr>
+         <td>
+             <button class="btn btn-primary" type="submit" value="Submit"> Move item</>
+</form>
+         </td>
+      </tr>
+
+   </tbody>
+   </table>
+
+	</form>	
+
+</div>
+
+</div>
+{% endblock %}
+
+
