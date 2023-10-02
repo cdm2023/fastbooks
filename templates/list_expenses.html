@@ -13,6 +13,7 @@
 		<th scope="col">Date</th>
 		<th scope="col">Category
 		<th scope="col">Amount</th>
+	        <th scope="col"><img src = "{{ url_for('static', filename='spacer.svg')}}", width=50)> </th> 
 		<th scope="col">Description</th>
 		<th scope="col">Vendor</th>
 		<th scope="col">ID</th>
@@ -23,7 +24,8 @@
 		<tr>
 			<td>{{ e[0] }}</td>
 			<td>{{ e[4] }}</td>
-			<td>{{ e[1] }}</td>
+			<td style='text-align:right'>{{ e[1] }}</td>
+		        <td scope="col">&nbsp;</td>
 			<td>{{ e[2] }}</td>
 			<td>{{ e[3] }}</td>
 			<td>{{ e[5] }}</td>
@@ -53,7 +55,7 @@
 		<tr>
 			<td>{{ ct[1] }}</td>
 			<td style='text-align:right'>{{ ct[0] }}</td>
-			<td><img src = "{{ url_for('static', filename='spacer.svg')}}", width=50 height=10) "> </td> 
+			<td><img src = "{{ url_for('static', filename='spacer.svg')}}", width=50 height=10) > </td> 
 	                <td>&nbsp;</td> 
 	                <td>&nbsp;</td> 
 	                <td>&nbsp;</td> 

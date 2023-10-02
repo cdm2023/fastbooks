@@ -1,7 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
+<h3 style='color:blue'>Bienvenido, {{ username }} </h3>
 
-<h3 style='color:blue'>Bienvenido </h3>
+{% for msg in get_flashed_messages()  %}
+<div class="alert alert-success" role='alert'>
+	{{ msg }}
+</div>
 
 
+{% endfor %}
 	{% endblock %}	

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="row">
+    <div class="col-md-6">
+
+	    <h4>confirm_transfer.html</h4>
+
+<h3 style='color: blue'> Transfer completed  </h6>
+<hr>
+<h3> Item: {{ item_data[0] }}</h3>
+<h3> S/N: {{ item_data[1] }}</h3>
+
+<h5>From: {{  db_transfer[0] }}</h5>
+<h5>To: {{    db_transfer[1] }}</h5>
+<h5>Date: {{  db_transfer[2] }}</h5>
+<h5>Notes: {{ db_transfer[3] }}</h5>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <table class="table table-sm">
+        <tbody>
+                <tr><th>Item</th><th>Serial no.</th>  <th>Product No.</th><th>Location</th>   </tr>
+            <tr>
+                <td>{{ item_data[2] }}</td>
+                <td>{{ item_data[3] }}</td>
+                <td>{{ item_data[4] }}</td>
+                <td>{{ item_data[5] }}</td>
+            </tr>
+        </tbody>
+        </table>
+        <br>
+        <br>
+</div>
+</div>
+
+
+{% endblock %}

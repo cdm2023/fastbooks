@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3 style="color:blue">Confirm transfer</h3>
+<br>
+
+<form action="confirm_transfer" method="POST">
+
+
+<input type="hidden" name="item_id" value="{{ item_data[0] }}" />
+<input type="hidden" name="from_cell_id" value="{{ from_cell_data[0] }}" />
+<input type="hidden" name="to_cell_id" value="{{ to_cell_data[0] }}" />
+
+
+<h4>item: {{ item_data[1] }} (S/N {{ item_data[2]}})   </h4>
+<h4>from cell: {{from_cell_data[1] }}  </h4>
+<h4>to cell: {{ to_cell_data[1] }}  </h4>
+<h4>Add notes:</h4>
+<textarea rows="5" cols="50" name="notes"> </textarea>
+<br>
+<button class="btn btn-primary">Confirm transfer</button>
+</form>
+
+
+{% endblock %}

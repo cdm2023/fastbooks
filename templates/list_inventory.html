@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+
+	{% if by_cell %}	
+	<h3 class="loggedin">Inventory by location</h3>
+	{% else %}
+	<h3 class="loggedin">Inventory by model</h3>
+	{% endif %}
+        
+<div class="row">
+<div class="col-md-10">
+<form action="show_item" method="POST">
+
+	{% if by_cell %}
+   <table class="table table-sm">	
+   <tbody>
+	   <tr><th>Location</th><th>Item</th><th>Serial No.</th><th>Product No.</th>
+      </tr>	   
+          {% for f in found_items %}
+      <tr>
+		    <td> <input type="radio" name="item_id" id={{ "f[0]" }}  value=" {{ f[0]  }}">  
+		     <label for={{" f[0]" }}> {{ f[4]}}</label></td>
+		     <td>{{ f[1] }} </td>          
+	             <td>{{ f[2] }} </td>          
+	             <td>{{ f[3] }} </td>          
+      </tr>
+            
+	    {% endfor %}
+       <tr>
+	   <td>
+	     <button class="btn btn-primary" type="submit" value="Select item">Select item</button>
+           </td> 
+       </tr>
+     
+    </tbody>
+   </table>
+
+
+
+      {% else %}
+   <table class="table table-sm">	
+   <tbody>
+	   <tr><th>Item</th><th>Serial No.</th><th>Product No.</th><th>Location</th>
+      </tr>	   
+          {% for f in found_items %}
+      <tr>
+		    <td> <input type="radio" name="item_id" id={{ "f[0]" }}  value=" {{ f[0]  }}">  
+		     <label for={{" f[0]" }}> {{ f[1] }}</label></td>
+		     <td>{{ f[2] }} </td>          
+	             <td>{{ f[3] }} </td>          
+	             <td>{{ f[4] }} </td>          
+      </tr>
+            
+	    {% endfor %}
+        <tr>
+	   <td>
+	     <button class="btn btn-primary" type="submit" value="Submit"> Select item</>
+           </td>
+        </tr>
+      
+   </tbody>
+   </table>
+
+{% endif %}
+</form>
+</div>
+</div>
+</div>
+                {% endblock %}

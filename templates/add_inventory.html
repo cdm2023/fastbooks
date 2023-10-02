@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+<h2>add_inventory.html</h2>
+
+{% block content %}
+<h4 style='color:#B72030'>New inventory </h4>
+<hr>
+{% if res_list %}
+<img src="{{ url_for('static',filename='honeycomb.png')}} height='40' " >
+<h5 style='color:#B72030'>Added: </h5>
+
+<h5>Brand: {{ res_list[0] }}   </h5>
+<h5>Model: {{ res_list[1] }}   </h5>
+<h5>Serial no.: {{ res_list[2] }}   </h5>
+<h5>Product no.: {{ res_list[3] }}   </h5>
+<hr/>
+{% endif %}
+
+<h5 style='color:#B72030'>Add new item: </h5>
+<form action="add_inventory" method="POST">
+
+	<div>
+	<input type="text" id='brand'  name="brand"  value='Viking'> 
+        <label for "brand">Brand</label>
+	</div>
+	<div>
+	<input type="text" id='model' name="model"> 
+        <label for "model">Model</label>
+	</div>
+	<div>
+	<input type="text" id='serial' name="serial"> 
+        <label for "serial">Serial No.</label>
+	</div>
+	<div>
+	<input type="text" id='product' name="product"> 
+        <label for "product">Product No.</label>
+	</div>
+	<div>
+		<br>	
+	<button class="btn btn-primary">Save new item</button>
+	</div>
+</form>	
+
+
+
+{% endblock %}
